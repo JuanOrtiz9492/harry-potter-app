@@ -1,5 +1,7 @@
 import Head from "next/head";
+import Navbar from "./navbar";
 import { ReactNode } from "react";
+
 interface propsInterface {
   children: ReactNode;
 }
@@ -15,7 +17,10 @@ export default function MainLayout(props: propsInterface) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>{props.children}</main>
+      <main>
+        <Navbar />
+        {props.children}
+      </main>
     </>
   );
 }
