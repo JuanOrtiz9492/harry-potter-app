@@ -21,7 +21,6 @@ export async function getStaticProps() {
     "http://localhost:5020/harry-potter-api/hechizos"
   );
   const data = await response.json();
-  console.log(data);
   return {
     props: {
       data,

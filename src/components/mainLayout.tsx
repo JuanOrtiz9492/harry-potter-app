@@ -17,9 +17,9 @@ export default function MainLayout(props: propsInterface) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="h-screen">
         <Navbar />
-        {props.children}
+        <div className="h-9/10">{props.children}</div>
       </main>
     </>
   );

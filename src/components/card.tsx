@@ -19,7 +19,12 @@ export default function Card(props: cardPropsInterface) {
         <p className="text-ellipsis">{spellName}</p>
       </div>
       <div className="border-4 border-teal-900">
-        <img src={imgsrc} alt={`imagen del hechizo ${spellName}`} />
+        <img
+          src={imgsrc}
+          alt={`imagen del hechizo ${spellName}`}
+          width="253"
+          height="214"
+        />
       </div>
       <section className="my-4 h-28 border-2 border-teal-900 bg-teal-300 p-1">
         <article>{description}</article>
