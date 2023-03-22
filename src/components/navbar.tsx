@@ -29,12 +29,12 @@ const LINKS = [
 ];
 export default function Navbar() {
   return (
-    <nav className="h-1/10 flex w-full items-center justify-center bg-red-800">
-      <ul className="flex w-2/3 justify-between px-4">
+    <nav className="flex h-20 w-full items-center justify-center bg-gray-800">
+      <ul className="flex w-full justify-end px-4">
         {LINKS.map(({ id, name, href }) => (
           <li key={id}>
             <Link
-              className=" block w-32 border-2 border-slate-800 bg-amber-400 p-2 text-center font-semibold uppercase hover:scale-110"
+              className=" box-border block w-32 p-2 text-center font-semibold uppercase text-white hover:border-b-2 hover:border-white"
               href={href}
             >
               {name}

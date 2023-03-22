@@ -17,9 +17,11 @@ export default function MainLayout(props: propsInterface) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-screen">
-        <Navbar />
-        <div className="h-9/10">{props.children}</div>
+      <main>
+        <div className="min-h-screen bg-gradient-to-b from-teal-900 to-gray-800">
+          <Navbar />
+          {props.children}
+        </div>
       </main>
     </>
   );

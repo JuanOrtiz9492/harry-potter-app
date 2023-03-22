@@ -10,6 +10,16 @@ module.exports = {
         "1/10": "10%",
         "9/10": "90%",
       },
+      colors: {
+        cream: {
+          100: "#f0dfc8",
+          200: "#dbba86",
+          300: "#b8a17b",
+        },
+      },
+      backgroundImage: {
+        "paper-texture": "url('/harry-potter-app/beige-textured-paper.jpg')",
+      },
     },
   },
   plugins: [],

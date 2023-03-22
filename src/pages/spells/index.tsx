@@ -6,8 +6,7 @@ interface spellPropsInterface {
 export default function Spells(props: spellPropsInterface) {
   const { data: spellList } = props;
   return (
-    <div className="flex justify-center bg-sky-100">
-      <h2>Hechizos</h2>
+    <div className="flex justify-center">
       <div className="flex flex-wrap">
         {spellList.length > 0 &&
           spellList.map((spell) => <Card cardData={spell} key={spell.id} />)}
