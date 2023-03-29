@@ -9,7 +9,7 @@ export default function MainLayout(props: propsInterface) {
   return (
     <>
       <Head>
-        <title>Harry Potter App</title>
+        <title>Potterverse Hub</title>
         <meta
           name="description"
           content="an app with data about harry potter world"
@@ -18,7 +18,7 @@ export default function MainLayout(props: propsInterface) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="min-h-screen bg-gradient-to-b from-teal-900 to-gray-800">
+        <div className="flex min-h-screen flex-col bg-gradient-to-b from-teal-900 to-gray-800">
           <Navbar />
           {props.children}
         </div>

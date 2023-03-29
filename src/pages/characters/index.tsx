@@ -16,7 +16,7 @@ interface charactersPropsInterface {
 export default function Characters(props: charactersPropsInterface) {
   const { data } = props;
   return (
-    <div className="flex flex-wrap justify-center bg-sky-100">
+    <div className="flex flex-wrap justify-center">
       {data.map((character) => (
         <CharacterCard
           characterData={character}

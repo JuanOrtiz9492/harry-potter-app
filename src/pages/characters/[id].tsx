@@ -1,4 +1,8 @@
 import { buildApiPath } from "@/utils";
+import griffindor from "../../../public/griffindor.png";
+import ravenclaw from "../../../public/ravenclaw.png";
+import slytherin from "../../../public/slytherin.png";
+import hufflepuff from "../../../public/hufflepuff.png";
 import Image from "next/image";
 
 interface ProfilePropsInteface {
@@ -13,29 +17,13 @@ interface ProfilePropsInteface {
 }
 export default function Profile(props: ProfilePropsInteface) {
   const { data } = props;
-  const getClassByHouse = (house: string) => {
-    const housesList = {
-      Gryffindor: "bg-red-800",
-      Ravenclaw: "bg-sky-700",
-      Slytherin: "bg-emerald-700",
-      Hufflepuff: "bg-yellow-200",
-      default: "bg-teal-100",
-    };
-    // @ts-ignore
-    if (housesList[house]) {
-      // @ts-ignore
-      return housesList[house];
-    } else {
-      return housesList.default;
-    }
-  };
 
   const getBannerByHouse = (house: string) => {
     const housesList = {
-      Gryffindor: "/harry-potter-app/griffindor.jpg",
-      Ravenclaw: "/harry-potter-app/ravenclaw.jpg",
-      Slytherin: "/harry-potter-app/slytherin.jpg",
-      Hufflepuff: "/harry-potter-app/hufflepuff.jpg",
+      Gryffindor: griffindor,
+      Ravenclaw: ravenclaw,
+      Slytherin: slytherin,
+      Hufflepuff: hufflepuff,
       default: "",
     };
     // @ts-ignore
@@ -46,24 +34,28 @@ export default function Profile(props: ProfilePropsInteface) {
       return housesList.default;
     }
   };
+  const banerUrl = getBannerByHouse(data.casaDeHogwarts);
 
   return (
-    <div
-      className={`${getClassByHouse(
-        data.casaDeHogwarts
-      )} flex h-full justify-start`}
-    >
-      <div className="mt-12 ml-12 flex h-fit rounded bg-white bg-opacity-20 p-4">
+    <div>
+      <div className="mt-12 ml-12 flex h-fit w-fit rounded bg-white bg-opacity-20 p-4">
         <div className="mr-4">
-          <img src={buildApiPath(data.imagen)} />
+          <Image
+            src={buildApiPath(data.imagen)}
+            width="423"
+            height="600"
+            alt={`imagen de ${data.personaje}`}
+          />
         </div>
         <div className="mr-4 w-28">
-          <img
-            src={getBannerByHouse(data.casaDeHogwarts)}
-            alt={`baner casa ${data.casaDeHogwarts}`}
-            width="258"
-            height="591"
-          />
+          {banerUrl && (
+            <Image
+              src={banerUrl}
+              alt={`baner casa ${data.casaDeHogwarts}`}
+              width="258"
+              height="591"
+            />
+          )}
         </div>
         <div className="mr-8 flex flex-col">
           <p className="font-bold uppercase">personaje:</p>

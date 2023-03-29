@@ -1,30 +1,56 @@
 import Link from "next/link";
 import Image from "next/image";
 import { buildApiPath } from "@/utils";
-export default function CharacterCard(props) {
+
+interface CharacterCardProps {
+  characterData: {
+    imagen: string;
+    personaje: string;
+    casaDeHogwarts: string;
+  };
+  href: string;
+}
+export default function CharacterCard(props: CharacterCardProps) {
   const {
-    characterData: { imagen, personaje, casaDeHogwarts, id },
+    characterData: { imagen, personaje, casaDeHogwarts },
     href,
   } = props;
+  const getClassByHouse = (house: string) => {
+    const housesList = {
+      Gryffindor: "bg-red-800 text-white",
+      Ravenclaw: "bg-sky-700 text-white",
+      Slytherin: "bg-emerald-700 text-white",
+      Hufflepuff: "bg-yellow-200 text-white",
+      default: "bg-teal-100",
+    };
+    // @ts-ignore
+    if (housesList[house]) {
+      // @ts-ignore
+      return housesList[house];
+    } else {
+      return housesList.default;
+    }
+  };
 
   return (
     <Link
-      className={`m-4 flex max-h-96 w-48 cursor-pointer flex-col border-2 border-red-800 bg-amber-400 p-4 hover:scale-105`}
+      className={`m-4 flex max-h-72 w-48 cursor-pointer flex-col hover:scale-105`}
       href={href}
     >
-      <div className="border-2 border-red-800">
-        <Image
-          src={buildApiPath(imagen)}
-          alt={`imagen de ${personaje}`}
-          width="192"
-          height="225"
-        />
-      </div>
-      <div className="mt-2">
-        <p className="font-bold uppercase">Personaje:</p>
-        <p>{personaje}</p>
-        <p className="font-bold uppercase">Casa:</p>
-        <p>{casaDeHogwarts}</p>
+      <Image
+        className="w-40 rounded-t"
+        src={buildApiPath(imagen)}
+        alt={`imagen de ${personaje}`}
+        width="192"
+        height="225"
+      />
+
+      <div
+        className={`${getClassByHouse(
+          casaDeHogwarts
+        )} h-16 w-40 rounded-b pt-2`}
+      >
+        <p className="w-40 text-center font-medium">{personaje}</p>
       </div>
     </Link>
   );

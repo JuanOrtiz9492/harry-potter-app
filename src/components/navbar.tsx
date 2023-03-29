@@ -11,21 +11,21 @@ const LINKS = [
     name: "Hechizos",
     href: "/spells",
   },
-  {
+  /*   {
     id: 3,
     name: "Curiosidades",
     href: "/info",
-  },
+  }, */
   {
     id: 4,
     name: "Personajes",
     href: "/characters",
   },
-  {
+  /*   {
     id: 5,
     name: "Libros",
     href: "/books",
-  },
+  }, */
 ];
 export default function Navbar() {
   return (

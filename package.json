@@ -6,7 +6,7 @@
     "dev": "concurrently \"tailwindcss -i ./src/styles/globals.css -o ./src/styles/tailwind.css --watch\" \"next dev\"",
     "prebuild": "tailwindcss -i ./src/styles/globals.css -o ./src/styles/tailwind.css",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 4522",
     "lint": "next lint"
   },
   "dependencies": {
