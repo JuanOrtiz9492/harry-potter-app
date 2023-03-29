@@ -1,4 +1,5 @@
 import CharacterCard from "../../components/charcaterCard";
+import { buildApiPath } from "@/utils";
 
 interface charactersPropsInterface {
   data: Array<{
@@ -29,9 +30,7 @@ export default function Characters(props: charactersPropsInterface) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(
-    "http://localhost:5020/harry-potter-api/personajes"
-  );
+  const response = await fetch(buildApiPath("/harry-potter-api/personajes"));
   const data = await response.json();
   return {
     props: {

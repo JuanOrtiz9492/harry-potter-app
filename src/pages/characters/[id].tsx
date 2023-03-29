@@ -81,9 +81,7 @@ export default function Profile(props: ProfilePropsInteface) {
 }
 
 export async function getStaticPaths() {
-  const response = await fetch(
-    "http://localhost:5020/harry-potter-api/personajes"
-  );
+  const response = await fetch(buildApiPath("/harry-potter-api/personajes"));
   const data = await response.json();
   const paths = data.map((characters: { id: string }) => ({
     params: { id: characters.id.toString() },
@@ -96,7 +94,7 @@ export async function getStaticProps(context: { params: { id: string } }) {
     params: { id },
   } = context;
   const response = await fetch(
-    `http://localhost:5020/harry-potter-api/personajes?id=${id}`
+    buildApiPath(`/harry-potter-api/personajes?id=${id}`)
   );
   const data = await response.json();
   return {

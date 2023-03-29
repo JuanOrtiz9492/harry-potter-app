@@ -1,4 +1,5 @@
 import Card from "@/components/card";
+import { buildApiPath } from "@/utils";
 
 interface spellPropsInterface {
   data: Array<{ id: number; hechizo: string; uso: string }>;
@@ -16,9 +17,7 @@ export default function Spells(props: spellPropsInterface) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(
-    "http://localhost:5020/harry-potter-api/hechizos"
-  );
+  const response = await fetch(buildApiPath("/harry-potter-api/hechizos"));
   const data = await response.json();
   return {
     props: {
