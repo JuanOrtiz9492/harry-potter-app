@@ -3,7 +3,14 @@ const nextConfig = {
   reactStrictMode: true,
   basePath: "/harry-potter-app",
   images: {
-    domains: ["localhost"],
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "www.juanortizdev.com",
+        port: "",
+        pathname: "/harry-potter-api/**",
+      },
+    ],
   },
 };
 
